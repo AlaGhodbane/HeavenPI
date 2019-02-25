@@ -1,0 +1,42 @@
+{% extends 'baseadmin.html.twig' %}
+ {% block content %}
+
+     <html>
+     <head>
+         <title>Event</title>
+     </head>
+     <body>
+     <center>
+         <div class="card-body">
+             <h4 class="card-title">Event List</h4>
+
+             <div class="table-responsive">
+                 <table class="table table-striped table-bordered">
+                     <thead>
+                     <tr>
+                         <th>Utilisateur</th>
+                         <th>Position</th>
+                         <th>Date Debut</th>
+                         <th>Date Fin</th>
+                         <th class="td-actions"></th>
+                     </tr>
+                     </thead>
+                     <tbody>
+
+                     {% for publicite in publicites %}
+                         <tr>
+                             <td>{{ publicite.user }}</td>
+                             <td>{{ publicite.position }}</td>
+                             <td>{{ publicite.datedebut | date('Y-m-d h:m') }}</td>
+                             <td>{{ publicite.datefin | date('Y-m-d h:m') }}</td>
+
+
+                         </tr>
+                     {% endfor %}
+                     </tbody>
+                 </table>
+
+     </center>
+     </body>
+     </html>
+ {% endblock %}

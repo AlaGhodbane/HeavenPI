@@ -1,0 +1,76 @@
+{% extends 'baseadmin.html.twig' %}
+ {% block content %}
+
+        {% spaceless %}
+
+        {{ form_start(form, {'method': 'post', 'action': path('ajouter_event') }) }}
+            {{ form_row(form._token) }}
+
+            <div class="row">
+
+
+        <div class="card-body">
+            <h3 class="card-title mt-2">Create Event</h3>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-form-label">Event Name</label>
+                        {{ form_widget(form.title,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-form-label">Address</label>
+                        {{ form_widget(form.address,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-form-label">Start Date</label>
+                        {{ form_widget(form.startdate,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-form-label">End Date</label>
+                        {{ form_widget(form.enddate,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-form-label">Number Of Participants</label>
+                        {{ form_widget(form.NbrParticipant,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputlname" class="control-label col-form-label">Maximum Number Of Participants</label>
+                        {{ form_widget(form.NbrDesPlaces,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="inputEmail3" class="control-label col-form-label">Description</label>
+                    {{ form_widget(form.description,{'attr':{'class':'form-control'}} ) }}
+                </div>
+            </div>
+
+            <div class="buttons">
+                <div class="pull-right">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+
+</div>
+
+            {% endspaceless %}
+        {{ form_end(form) }}
+
+
+ {% endblock %}

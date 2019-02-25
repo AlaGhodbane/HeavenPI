@@ -1,0 +1,39 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block content %}
+    <h1>Claim</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idclaim</th>
+                <td>{{ claim.idclaim }}</td>
+            </tr>
+            <tr>
+                <th>Claimdate</th>
+                <td>{% if claim.claimdate %}{{ claim.claimdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Object</th>
+                <td>{{ claim.object }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ claim.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+            <button class="btn btn-info btn-rounded m-t-10 mb-2 float-right" data-target="#add-contact" data-toggle="modal" type="button" style="margin-left: 5px">
+                <a href="{{ path('claim_index') }}" style="color: white">Back to the list</a></button>
+
+
+        <button class="btn btn-info btn-rounded m-t-10 mb-2 float-right" data-target="#add-contact" data-toggle="modal" type="button" style="margin-left: 5px; background-color: #0b7ec4" ><a href="{{ path('claim_approve', {'idclaim':claim.idclaim}) }}" style="color: white">Approve</a></button>
+        <button class="btn btn-info btn-rounded m-t-10 mb-2 float-right" data-target="#add-contact" data-toggle="modal" type="button" style="margin-left: 5px; background-color: red; border-color:red"> <a href="{{ path('claim_ignore', {'idclaim':claim.idclaim}) }}" style="color: white">Ignore</a></button>
+
+
+
+    </ul>
+
+{% endblock %}

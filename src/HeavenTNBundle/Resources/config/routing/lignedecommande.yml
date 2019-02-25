@@ -1,0 +1,20 @@
+lignedecommande_index:
+    path:     /
+    defaults: { _controller: "HeavenTNBundle:Lignedecommande:index" }
+    methods:  GET
+
+lignedecommande_show:
+    path:     /{id}/show
+    defaults: { _controller: "HeavenTNBundle:Lignedecommande:show" }
+    methods:  GET
+
+
+lignedecommande_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "HeavenTNBundle:Lignedecommande:edit" }
+    methods:  [GET, POST]
+
+lignedecommande_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "HeavenTNBundle:Lignedecommande:delete" }
+    methods:  DELETE

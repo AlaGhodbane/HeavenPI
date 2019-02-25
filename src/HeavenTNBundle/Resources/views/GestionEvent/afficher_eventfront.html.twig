@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+ {% block content %}
+
+         {% for E in event %}
+             <div class="html-content">
+                 <div class="header-content-title">
+                     <div style="background-image: url('{{ asset('Bundles/image/catalog/demo/banners/parallax.jpg')}}')'; background-position: 50% 78.1106%;" data-source-url="../../OPC190_nursery/OPC01/image/catalog/demo/banners/parallax.jpg" class="parallex">
+                         <h1 style="color: white;text-align: center">Events</h1>
+                     </div>
+                 </div>
+                 <div class="box-content"><div id="ttcmsaboutus">
+                         <div class="aboutus" style="margin-top: 20px">
+                             <div class="container">
+                                 <div class="row">
+                                     <div class="aboutus-content">
+                                         <div class="about-img col-sm-6 col-xs-12 left-to-right hb-animate-element hb-in-viewport">
+                                             <a href="#">
+                                                 <img style="border-radius: 34%" alt="About Us" src="{{ E.eventavatar }}" >
+                                             </a>
+
+                                         </div>
+                                         <div class="about-content col-sm-6 col-xs-12 right-to-left hb-animate-element hb-in-viewport">
+                                             <div ><h1>{{ E.title }}</h1></div>
+                                             <div><h2>{{ E.address }}</h2></div>
+
+                                             <div class="about-desc" style="font-size: 21px">{{ E.Description }} le {{ E.startdate|date('d/m') }}  A {{ E.startdate|date('h:m') }}  et se termine le {{ E.enddate |date('d/m')}} a {{ E.enddate |date('h:m')}}</div>
+
+                                             <div class="about-counter">
+
+                                                 <div class="counter">
+                                                     <div class="num">{{ E.startdate|date('d') }}</div>
+                                                     <div class="desc">Day</div>
+                                                 </div>
+
+                                                 <div class="counter">
+                                                     <div class="num">{{ E.startdate|date('m') }}</div>
+                                                     <div class="desc">Month</div>
+                                                 </div>
+
+                                                 <div class="counter">
+                                                     <div class="num">20{{ E.startdate|date('y') }}</div>
+                                                     <div class="desc">Year</div>
+                                                 </div>
+
+                                             </div>
+                                             <div class="about-btn">
+                                                 {%if ( E.NbrDesPlaces>0) %}
+                                                     <a href="{{ path('_Reserver_event',{'idevent':E.idevent } ) }}">Reserver</a>
+                                                 {%endif %}
+
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div></div>
+             </div>
+
+             {% endfor %}
+
+
+ {% endblock %}

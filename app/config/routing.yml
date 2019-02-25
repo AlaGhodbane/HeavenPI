@@ -1,0 +1,15 @@
+heaven_tn:
+    resource: "@HeavenTNBundle/Resources/config/routing.yml"
+    prefix:   /heaven
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+user:
+    resource: "@UserBundle/Resources/config/routing.xml"
+    prefix:   /
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+publicite:
+    resource: "@PubliciteBundle/Resources/config/routing.yml"
+    prefix:   /

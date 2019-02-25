@@ -1,0 +1,172 @@
+{% extends 'base.html.twig' %}
+    {% block aside %}
+
+{% block content %}
+    <div class="header-content-title">
+        <div style="background-image: url('{{ asset('Bundles/image/catalog/demo/banners/parallax.jpg')}}')'; background-position: 50% 78.1106%;" data-source-url="../../OPC190_nursery/OPC01/image/catalog/demo/banners/parallax.jpg" class="parallex">
+      <h1 style="color: white;text-align: center">Products</h1>
+        </div>
+    </div>
+        <aside id="column-left" class="col-sm-3 hidden-xs">
+            <div class="panel panel-default category-treeview">
+                <div class="panel-heading">Categories</div>
+                <ul class="list-group" style="display: block;">
+                    <li class="category-li">
+                        <a href="index98dc.html?route=product/category&amp;path=20" class="list-group-item"> Assorted Shrubs</a>
+                        <!-- Display all category - child items list -->
+                    </li>
+                    <li class="category-li">
+                        <a href="index1647.html?route=product/category&amp;path=25" class="list-group-item">Cypress</a>
+                        <!-- Display all category - child items list -->
+                    </li>
+
+                    <li class="category-li category-active active"><div class="list-tree"></div>
+                        <a href="index4eb1.html?route=product/category&amp;path=65" class="list-group-item active">Berries</a>
+                        <ul style="display: block;">
+
+                            <li><a href="indexeeaf.html?route=product/category&amp;path=65_82" class="list-group-item current-child-item">Ornamental Grasses</a></li>
+
+                            <li><a href="index1812.html?route=product/category&amp;path=65_81" class="list-group-item current-child-item">Flowering Varieties</a></li>
+                        </ul>
+                    </li>
+                    <li class="category-li">
+                        <a href="index78aa.html?route=product/category&amp;path=66" class="list-group-item">Boxwood</a>
+                        <!-- Display all category - child items list -->
+                    </li>
+                    <li class="category-li">
+                        <a href="indexebd7.html?route=product/category&amp;path=67" class="list-group-item">Barberry</a>
+                        <!-- Display all category - child items list -->
+                    </li>
+                    <li class="category-li">
+                        <a href="indexe1fb.html?route=product/category&amp;path=69" class="list-group-item">Spirea</a>
+                        <!-- Display all category - child items list -->
+                    </li>
+                    <li class="category-li">
+                        <a href="index91c2.html?route=product/category&amp;path=71" class="list-group-item">Azaleas</a>
+                        <!-- Display all category - child items list -->
+                    </li>
+                </ul>
+            </div>
+            <script type="text/javascript"><!--
+                $('#banner0').swiper({
+                    effect: 'fade',
+                    autoplay: 2500,
+                    autoplayDisableOnInteraction: false
+                });
+                --></script>
+
+            <div class="sidebar panel panel-default information-list" style="border-color: white">
+                <div class="panel-heading"></div>
+                <div class="list-group" style="display: block;">
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+
+                    <p style="color: white">dsfsdfdsf</p>
+
+                    <p style="color: white">dsfsdfdsf</p>
+
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+
+                    <p style="color: white">dsfsdfdsf</p>
+
+                    <p style="color: white">dsfsdfdsf</p>
+
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+
+                    <p style="color: white">dsfsdfdsf</p>
+
+                    <p style="color: white">dsfsdfdsf</p>
+
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+                    <p style="color: white">dsfsdfdsf</p>
+
+
+
+
+                </div>
+            </div>
+        </aside>
+
+        {% for product in products %}
+    <div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="product-thumb row">
+            <div class="image col-xs-12">
+                <a href="{{ path('product_show', { 'idproduct': product.idproduct }) }}">
+                    <img class="image_thumb" src="{{ product.productimage }}" title="aliquam quaerat voluptem" alt="aliquam quaerat voluptem">
+                    <img class="image_thumb_swap" src="{{ product.productimage }}" title="aliquam quaerat voluptem" alt="aliquam quaerat voluptem">
+                </a>
+
+            </div>
+            <div class="thumb-description col-xs-12">
+                <div class="caption">
+                    <h4><a href="{{ path('product_show', { 'idproduct': product.idproduct }) }}">{{ product.productname }}</a></h4>
+                    <div class="rating no-rating">
+                        <span class="fa fa-stack"><i class="fa fa-star off fa-stack-2x"></i></span>
+                        <span class="fa fa-stack"><i class="fa fa-star off fa-stack-2x"></i></span>
+                        <span class="fa fa-stack"><i class="fa fa-star off fa-stack-2x"></i></span>
+                        <span class="fa fa-stack"><i class="fa fa-star off fa-stack-2x"></i></span>
+                        <span class="fa fa-stack"><i class="fa fa-star off fa-stack-2x"></i></span>
+
+                    </div>
+
+                    <p class="description">Canon's press material for the EOS 5D states that it 'defines (a) new D-SLR category', while we're n..</p>
+                    <div class="price">
+                        {{ product.price }} DT
+                        <span class="price-tax">Ex Tax: $100.00</span>                 </div>
+
+                </div>
+                <div class="button-group">
+                    <button class="btn-cart " type="button" title="Add to Cart" onclick="cart.add('30')">
+
+                        <i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart
+                </span></button>
+                    <button class="btn-wishlist" title="Add to Wish List" onclick="wishlist.add('30');"><i class="fa fa-heart"></i>
+                        <span title="Add to Wish List">Add to Wish List</span>
+                    </button>
+                    <button class="btn-compare" title="Add to compare" onclick="compare.add('30');"><i class="fa fa-exchange"></i>
+                        <span title="Add to compare">Add to compare</span>
+                    </button>
+                    <button class="btn-quickview" type="button" title="Quick View" onclick="tt_quickview.ajaxView('indexaebf.html?route=product/product&amp;path=65&amp;product_id=30')"><i class="fa fa-eye"></i>
+                        <span title="Quick View">Quick View</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        {% endfor %}
+
+        {% endblock %}
+
+    {% endblock%}
+

@@ -1,0 +1,57 @@
+{% extends 'baseadmin.html.twig' %}
+ {% block content %}
+
+     <html>
+     <head>
+         <title>Event</title>
+     </head>
+     <body>
+     <center>
+         <div class="card-body">
+         <h4 class="card-title">Archived Events</h4>
+
+         <div class="table-responsive">
+             <table class="table">
+                 <thead class="thead-light">
+                 <tr>                     <th scope="col">Image</th>
+                     <th scope="col">Event ID</th>
+                     <th scope="col">Event Name</th>
+                     <th scope="col">Description</th>
+                     <th scope="col">Address</th>
+                     <th scope="col">Start Date</th>
+                     <th scope="col">End Date</th>
+                     <th scope="col">Nb Of Participants</th>
+                     <th scope="col">Max Nb Of Participants</th>
+                     <th scope="col">Delete</th>
+
+
+
+
+
+                 </tr>
+                 </thead>
+             {% for E in event %}
+                 <tr>
+                     <td><img src="{{ E.eventavatar }}"alt="iMac" width="80"></td>
+
+                     <td>{{ E.idevent }}</td>
+                     <td> {{ E.title }} </td>
+                     <td>{{ E.Description }}</td>
+                     <td> {{ E.address }} </td>
+                     <td>{{ E.startdate|date('Y-m-d/h:m') }}</td>
+                     <td>{{ E.enddate |date('Y-m-d/h:m')}}</td>
+                     <td> {{ E.NbrParticipant }} </td>
+                     <td> {{ E.NbrDesPlaces }} </td>
+
+
+                     <td><button class="btn btn-info btn-rounded m-t-10 mb-2 float-right" data-target="#add-contact" data-toggle="modal" type="button" style="float:none!important;display:inline;" >   <a href="{{ path('supprimer_event',{'idevent':E.idevent } ) }}"style="color: white"> Delete </a> </td>
+
+                 </tr>
+             {% endfor %}
+
+         </table>
+
+     </center>
+     </body>
+     </html>
+ {% endblock %}

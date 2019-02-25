@@ -1,0 +1,231 @@
+<?php
+
+namespace HeavenTNBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\OneToMany;
+use Doctrine\ORM\Mapping\OneToOne;
+
+
+/**
+ * Stock
+ *
+ * @ORM\Table(name="stock")
+ * @ORM\Entity
+ */
+class Stock
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idstock", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idstock;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantity", type="integer", nullable=true)
+     */
+    private $quantity;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="entrydate", type="date", nullable=true)
+     */
+    private $entrydate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="minalert", type="integer", nullable=true)
+     */
+    private $minalert;
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state", type="string", nullable=true)
+     */
+    private $state;
+
+    /**
+     * @OneToMany(targetEntity="HeavenTNBundle\Entity\Product", mappedBy="stock",cascade={"persist", "remove"})
+     */
+    private $products;
+
+    /**
+     * Stock constructor.
+     * @param int $quantity
+     * @param \DateTime $entrydate
+     * @param int $minalert
+     * @param $product
+     */
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
+
+    /**
+     * Add product
+     *
+     * @param \HeavenTNBundle\Entity\Product $product
+     *
+     * @return Stock
+     */
+    public function addProduct(\HeavenTNBundle\Entity\Product $product)
+    {
+        $this->products[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \HeavenTNBundle\Entity\Product $product
+     */
+    public function removeProduct(\HeavenTNBundle\Entity\Product $product)
+    {
+        $this->products->removeElement($product);
+    }
+
+
+    /**
+     * Set idstock
+     *
+     * @param integer $idstock
+     *
+     * @return Stock
+     */
+    public function setIdstock($idstock)
+    {
+        $this->idstock = $idstock;
+
+        return $this;
+    }
+
+    /**
+     * Get idstock
+     *
+     * @return integer
+     */
+    public function getIdstock()
+    {
+        return $this->idstock;
+    }
+
+    /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     *
+     * @return Stock
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return integer
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * Set entrydate
+     *
+     * @param \DateTime $entrydate
+     *
+     * @return Stock
+     */
+    public function setEntrydate($entrydate)
+    {
+        $this->entrydate = $entrydate;
+
+        return $this;
+    }
+
+    /**
+     * Get entrydate
+     *
+     * @return \DateTime
+     */
+    public function getEntrydate()
+    {
+        return $this->entrydate;
+    }
+
+    /**
+     * Set minalert
+     *
+     * @param integer $minalert
+     *
+     * @return Stock
+     */
+    public function setMinalert($minalert)
+    {
+        $this->minalert = $minalert;
+
+        return $this;
+    }
+
+    /**
+     * Get minalert
+     *
+     * @return integer
+     */
+    public function getMinalert()
+    {
+        return $this->minalert;
+    }
+
+    /**
+     * Set state
+     *
+     * @param string $state
+     *
+     * @return Stock
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+}

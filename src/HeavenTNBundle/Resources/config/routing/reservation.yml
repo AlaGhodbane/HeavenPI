@@ -1,0 +1,45 @@
+reservation_index:
+    path:     /
+    defaults: { _controller: "HeavenTNBundle:Reservation:index" }
+    methods:  GET
+
+reservation_show:
+    path:     /{idRes}/show
+    defaults: { _controller: "HeavenTNBundle:Reservation:show" }
+    methods:  GET
+
+reservation_new:
+    path:     /new
+    defaults: { _controller: "HeavenTNBundle:Reservation:new" }
+    methods:  [GET, POST]
+
+reservation_new2:
+    path:     /new2
+    defaults: { _controller: "HeavenTNBundle:Reservation:new2" }
+    methods:  [GET, POST]
+
+reservation_new3:
+    path:     /new3
+    defaults: { _controller: "HeavenTNBundle:Reservation:new3" }
+    methods:  [GET, POST]
+
+reservation_new4:
+    path:     /new4
+    defaults: { _controller: "HeavenTNBundle:Reservation:new4" }
+    methods:  [GET, POST]
+
+reservation_new5:
+    path:     /new5
+    defaults: { _controller: "HeavenTNBundle:Reservation:new5" }
+    methods:  [GET, POST]
+
+
+reservation_edit:
+    path:     /{idRes}/edit
+    defaults: { _controller: "HeavenTNBundle:Reservation:edit" }
+    methods:  [GET, POST]
+
+reservation_delete:
+    path:     /{idRes}/delete
+    defaults: { _controller: "HeavenTNBundle:Reservation:delete" }
+    methods:  DELETE

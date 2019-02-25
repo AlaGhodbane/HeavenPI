@@ -1,0 +1,328 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+<div id="page">
+<div class="header-content-title">
+</div>
+<div class="content-top">
+    <div class="slideshow-panel">
+        <div class="ttloading-bg ttloader"></div>
+        <div class="swiper-viewport">
+            <div id="slideshow0" class="slideshow-main swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide text-center">
+                        <a href="#">
+                            <img src="{{ asset('Bundles/image/cache/catalog/demo/banners/slider-01-1903x850.jpg')}}" alt="slider-01" class="img-responsive" />
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pager">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript"><!--
+        var swiper = new Swiper('#slideshow0', {
+            mode: 'horizontal',
+            slidesPerView: 1,
+            pagination: '.slideshow0',
+            paginationClickable: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 0,
+            effect: 'fade',
+            autoplay: 2500,
+            autoplayDisableOnInteraction: true,
+            loop: true
+        });
+        --></script>
+    <div class="newletter-popup">
+        <div id="boxes" class="newletter-container">
+            <div style="" id="dialog" class="window">
+                <div id="popup2">
+                    <span class="b-close"><span>X</span></span>
+                </div>
+                <div class="newslatter-img col-sm-6 col-xs-6">
+                </div>
+                <div class="box col-sm-6 col-xs-6">
+                    <div class="newletter-title"><h2>Newsletter</h2></div>
+                    <div class="box-content newleter-content">
+                        <label></label>
+                        <div id="frm_subscribe">
+                            <form name="subscribe" id="subscribe_popup">
+                                <div class="newslatterpopup-content">
+                                    <span class="required">*</span><span>Your email address</span>
+                                    <div id="notification"></div>
+                                    <input type="text" value="" name="subscribe_pemail" id="subscribe_pemail" placeholder="Your email address">
+                                    <input type="hidden" value="" name="subscribe_pname" id="subscribe_pname" />
+
+                                    <div class="popup-button">
+                                        <a class="button btn btn-primary" onclick="email_subscribepopup()"><span>Subscribe</span></a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="subscribe-bottom">
+                                <input type="checkbox" id="newsletter_popup_dont_show_again">
+                                <label for="newsletter_popup_dont_show_again">Don't show this popup again</label>
+                            </div>
+                        </div><!-- /#frm_subscribe -->
+                    </div><!-- /.box-content -->
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                function email_subscribepopup(){
+                    $.ajax({
+                        type: 'post',
+                        url: 'index.php?route=extension/module/ttnewslettersubscribe/subscribepopup',
+                        dataType: 'html',
+                        data:$("#subscribe_popup").serialize(),
+                        success: function (html) {
+                            //$.cookie('shownewsletter', '1');
+                            try {
+
+                                eval(html);
+
+                            } catch (e) {
+                            }
+                        }});
+
+
+                }
+                function email_unsubscribepopup(){
+                    $.ajax({
+                        type: 'post',
+                        url: 'index.php?route=extension/module/ttnewslettersubscribe/unsubscribe',
+                        dataType: 'html',
+                        data:$("#subscribe_popup").serialize(),
+                        success: function (html) {
+                            try {
+
+                                eval(html);
+
+                            } catch (e) {
+                            }
+                        }});
+                    $('html, body').delay( 1500 ).animate({ scrollTop: 0 }, 'slow');
+
+                }
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+
+                    if($.cookie('shownewsletter')==1) $('.newletter-popup').hide();
+                    $('#subscribe_pemail').keypress(function(e) {
+                        if(e.which == 13) {
+                            e.preventDefault();
+                            email_subscribepopup();
+                        }
+                        var name= $(this).val();
+                        $('#subscribe_pname').val(name);
+                    });
+                    $('#subscribe_pemail').change(function() {
+                        var name= $(this).val();
+                        $('#subscribe_pname').val(name);
+                    });
+
+
+                    //transition effect
+                    if($.cookie("shownewsletter") != 1){
+                        $('.newletter-popup').bPopup();
+
+                    }
+
+
+                    $('#newsletter_popup_dont_show_again').on('change', function(){
+                        if($.cookie("shownewsletter") != 1){
+                            $.cookie("shownewsletter",'1')
+                        }else{
+                            $.cookie("shownewsletter",'0')
+                        }
+                    });
+
+
+                });
+            </script>
+
+        </div>
+    </div><!-- /.box -->
+
+
+</div>
+<div class="tthome">
+
+    <div id="content" class="col-sm-12 left-column">
+        <div class="html-content">
+            <div class="box-content"><div id="ttcmsaboutus">
+                    <div class="aboutus">
+                        <div class="container">
+                            <div class="row">
+                                <div class="aboutus-content">
+                                    <div class="about-img col-sm-6 col-xs-12 left-to-right hb-animate-element">
+                                        <a href="#">
+                                            <img alt="About Us" src="{{ asset('Bundles/image/catalog/demo/banners/about-us.png')}}">
+                                        </a>
+                                        <div class="img-titles">
+                                            <div class="img-title">special</div>
+                                            <div class="img-subtitle">pot plant!</div>
+                                        </div>
+                                    </div>
+                                    <div class="about-content col-sm-6 col-xs-12 right-to-left hb-animate-element">
+                                        <div class="about-title">About Us</div>
+                                        <div class="about-desc">Lorem ipsum dolor sit amet, conc Lorem ipsum dolor sit amet, concLorem ipsum dolor Lorem ipsum  concLorem ipsum do sit amet, concLorem ipsum dolor.</div>
+                                        <div class="about-btn">
+                                            <a href="{{ path('productfront_index') }}">Shop Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+        </div>
+
+        <div class="ttproduct-main hb-animate-element bottom-to-top">
+
+        </div>
+
+
+        <script type="text/javascript">
+            $('.TTProduct-Tab  .tab-box-heading > ul > li:first-child').addClass('active');
+            $('.TTProduct-Tab  .tab-content > .tab-pane:first-child').addClass('active');
+            var tttrendingproducts = $(".TTProduct-Tab .products-carousel.owl-carousel");
+            tttrendingproducts.owlCarousel({
+                items:4,
+                itemsDesktop : [1170,4],
+                itemsDesktopSmall : [991,3],
+                itemsTablet: [767,2],
+                itemsMobile : [480,1],
+                navigation: true,
+                pagination: false
+            });
+        </script>
+        <div class="html-content">
+            <div class="box-content"><div id="ttcmsvideo" class="bottom-to-top hb-animate-element">
+                    <div class="container">
+                        <div class="tt-title">our product</div>
+
+
+                    </div>
+                </div></div>
+        </div>
+
+        <div class="html-content">
+            <div class="box-content"><div id="ttcmsservices">
+                    <div class="services bottom-to-top hb-animate-element">
+                        <div class="container">
+                            <div class="row">
+                                <div class="tt-title">best services</div>
+                                <div class="service-subtitle">Quis turpis et volutpat convallis, Plants Product and All</div>
+                                <div class="services-content">
+
+                                    <div class="col-sm-3 col-xs-6 service">
+                                        <div class="service-img">
+                                            <img alt="free shipping" src="{{ asset('Bundles/image/catalog/demo/banners/service-icon1.png')}}">
+                                        </div>
+                                        <div class="service-content">
+                                            <div class="services-title">free shipping</div>
+                                            <div class="service-desc">Lorem ipsum dolor sit amet, conc sit ametpurus.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3 col-xs-6 service">
+                                        <div class="service-img">
+                                            <img alt="money back" src="{{ asset('Bundles/image/catalog/demo/banners/service-icon2.png')}}">
+                                        </div>
+                                        <div class="service-content">
+                                            <div class="services-title">money back</div>
+                                            <div class="service-desc">Lorem ipsum dolor sit amet, conc sit ametpurus.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3 col-xs-6 service">
+                                        <div class="service-img">
+                                            <img alt="return policy" src="{{ asset('Bundles/image/catalog/demo/banners/service-icon3.png')}}">
+                                        </div>
+                                        <div class="service-content">
+                                            <div class="services-title">return policy</div>
+                                            <div class="service-desc">Lorem ipsum dolor sit amet, conc sit ametpurus.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3 col-xs-6 service">
+                                        <div class="service-img">
+                                            <img alt="contact us" src="{{ asset('Bundles/image/catalog/demo/banners/service-icon4.png')}}">
+                                        </div>
+                                        <div class="service-content">
+                                            <div class="services-title">contact us</div>
+                                            <div class="service-desc">Lorem ipsum dolor sit amet, conc sit ametpurus.</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+        </div>
+
+
+
+
+
+    </div>
+</div>
+
+    {% include  '@Publicite/publicite/homePub.html.twig'%}
+</div>
+</div>
+
+<div class="brand-carousel hb-animate-element bottom-to-top">
+    <div class="container">
+
+    </div>
+</div>
+</div>
+<script type="text/javascript"><!--
+    $('#carousel0').swiper({
+        mode: 'horizontal',
+        autoplay: 3000,
+        //pagination: '.carousel0',
+        pagination: false,
+        paginationClickable: false,
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next',
+
+        // Default parameters
+        slidesPerView: 5,
+
+        // Responsive breakpoints
+        breakpoints: {
+            // when window width is <= 1200px
+            1199: {
+                slidesPerView: 4
+            },
+            // when window width is <= 991px
+            991: {
+                slidesPerView: 4
+            },
+            // when window width is <= 767px
+            767: {
+                slidesPerView: 3
+            },
+            // when window width is <= 480px
+            480: {
+                slidesPerView: 2
+            }
+        }
+
+    });
+    --></script>
+
+
+</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block content %}
+
+<h1>Products list</h1>
+<div class="table-responsive">
+    <table class="table product-overview" id="zero_config">
+        <thead>
+        <tr >
+            <th>Products ID</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th>Product Image</th>
+            <th>Min Alert</th>
+            <th>Status</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr class="{{ product.stockstate }}">
+                <td><a href="{{ path('product_show', { 'idproduct': product.idproduct }) }}">{{ product.idproduct }}</a></td>
+                <td>{{ product.productname }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.quantite }}</td>
+                <td></td>
+                <td><img src="{{ product.productimage }}"alt="iMac" width="80"></td>
+                <td>{{ product.minAlert }}</td>
+                <td>{{ product.stockstate }}</td>
+
+                <td>
+                    <ul>
+                        <button class="btn btn-info btn-rounded m-t-10 mb-2 float-right" data-target="#add-contact" data-toggle="modal" type="button" style="float:none!important;display:inline;" >                             <a href="{{ path('product_edit', { 'idproduct': product.idproduct }) }}" style="color: white">Edit</a>
+
+
+
+
+
+
+
+
+                    </ul>
+
+                </td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+    <button class="btn btn-info btn-rounded m-t-10 mb-2 float-right" data-target="#add-contact" data-toggle="modal" type="button" style="margin-left: 5px">           <a href="{{ path('category_new') }}" style="color: white">Create a new category</a>    </button>
+
+
+
+    <button class="btn btn-info btn-rounded m-t-10 mb-2 float-right" data-target="#add-contact" data-toggle="modal" type="button">   <a href="{{ path('product_new') }}" style="color: white">Create a new product</a>
+    </button>
+</div>
+
+        {% endblock %}
+

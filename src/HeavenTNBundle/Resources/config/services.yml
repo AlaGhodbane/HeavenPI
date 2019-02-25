@@ -1,0 +1,4 @@
+services:
+#    heaven_tn.example:
+#        class: HeavenTNBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

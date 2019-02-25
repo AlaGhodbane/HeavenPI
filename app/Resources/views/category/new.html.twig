@@ -1,0 +1,23 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block content %}
+    <h1>Category creation</h1>
+
+    {{ form_start(form) }}
+<div class="col-sm-12 col-md-6">
+    <div class="form-group">
+        <label for="inputname" class="control-label col-form-label">Category</label>
+        {{ form_widget(form.name,{'attr':{'class':'form-control'}} ) }}
+    </div>
+</div>
+<div class="buttons">
+    <div class="pull-right">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+    {{ form_end(form) }}
+
+    <ul>
+
+            <button class="btn btn-info btn-rounded m-t-10 mb-2 float-right" data-target="#add-contact" data-toggle="modal" type="button" style="float:none!important;display:inline;" >                <a href="{{ path('category_index') }}" style="color: white">Back to the list</a>
+    </ul>
+{% endblock %}

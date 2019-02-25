@@ -1,0 +1,82 @@
+heaven_tn_product:
+    resource: "@HeavenTNBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+
+heaven_tn_cateogry:
+    resource: "@HeavenTNBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+heaven_tn_claim:
+    resource: "@HeavenTNBundle/Resources/config/routing/claim.yml"
+    prefix:   /claim
+
+
+
+heaven_tn_lcommande:
+    resource: "@HeavenTNBundle/Resources/config/routing/lignedecommande.yml"
+    prefix:   /lc
+
+
+heaven_tn_homepage:
+    path:     /
+    defaults: { _controller: HeavenTNBundle:Default:index }
+
+
+afficher_event:
+    path:     /afficherEvent
+    defaults: { _controller: HeavenTNBundle:GestionEvent:afficherEvent }
+
+afficher_eventfront:
+    path:     /afficherEventfront
+    defaults: { _controller: HeavenTNBundle:GestionEvent:afficherFrontEvent }
+
+_Reserver_event:
+    path:     /ReserverEvent/{idevent}
+    defaults: { _controller: HeavenTNBundle:GestionEvent:reserver }
+
+
+archiver_event:
+    path:     /archiverEvent
+    defaults: { _controller: HeavenTNBundle:GestionEvent:archiver }
+
+
+ajouter_event:
+    path:     /ajouterEvent
+    defaults: { _controller: HeavenTNBundle:GestionEvent:ajouterEvent }
+
+supprimer_event:
+    path:     /supprimerEvent/{idevent}
+    defaults: { _controller: HeavenTNBundle:GestionEvent:supprimerEvent }
+
+modifier_event:
+    path:     /modifierEvent/{idevent}
+    defaults: { _controller: HeavenTNBundle:GestionEvent:modifierEvent }
+
+rechercher_event:
+    path:     /rechercherEvent
+    defaults: { _controller: HeavenTNBundle:GestionEvent:rechercherEvent }
+
+
+demandePub:
+    path:     /demandePub
+    defaults: { _controller: HeavenTNBundle:PubBack:index  }
+    methods:  [GET, POST]
+
+validPub:
+    path:     /{idPub}/validePub
+    defaults: { _controller: HeavenTNBundle:PubBack:valider }
+    methods:  [GET, POST]
+
+refusPub:
+    path:     /{idPub}/refusPub
+    defaults: { _controller: HeavenTNBundle:PubBack:refuser }
+    methods:  [GET, POST]
+
+app_reservation:
+    resource: "@HeavenTNBundle/Resources/config/routing/reservation.yml"
+    prefix:   /reservation
+
+reservationPub:
+    path:     /reservationPub
+    defaults: { _controller: HeavenTNBundle:PubBack:indexRes  }
+    methods:  [GET, POST]

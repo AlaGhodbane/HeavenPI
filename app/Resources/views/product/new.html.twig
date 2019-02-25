@@ -1,0 +1,55 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block content %}
+        {{ form_start(form) }}
+<div class="row">
+
+
+    <div class="card-body">
+
+            <h3 class="card-title mt-2">Add New Product</h3>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-form-label">Product Name</label>
+                        {{ form_widget(form.productname,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-form-label">Price</label>
+                        {{ form_widget(form.price,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-form-label">Quantity</label>
+                        {{ form_widget(form.quantite,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-form-label">Description</label>
+                        {{ form_widget(form.description,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-form-label">Category</label>
+                        {{ form_widget(form.category,{'attr':{'class':'form-control'}} ) }}
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+        <div class="pull-right">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </div>
+    </div>
+</div>
+    {{ form_end(form) }}
+{% endblock %}

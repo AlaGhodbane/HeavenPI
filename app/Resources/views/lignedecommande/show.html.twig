@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Lignedecommande</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ lignedecommande.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantiteligne</th>
+                <td>{{ lignedecommande.quantiteligne }}</td>
+            </tr>
+            <tr>
+                <th>Prixligne</th>
+                <td>{{ lignedecommande.prixligne }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ lignedecommande.etat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lignedecommande_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('lignedecommande_edit', { 'id': lignedecommande.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
